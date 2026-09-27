@@ -1,0 +1,4 @@
+.chart-dates{height:22px;position:relative;margin:0 12px;color:#96919d;font-size:9px}
+.chart-dates span{position:absolute;top:4px;transform:translateX(-50%);white-space:nowrap}
+.chart-dates span:first-child{transform:none}
+.chart-dates span:last-child{transform:translateX(-100%)}

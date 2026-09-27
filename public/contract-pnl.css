@@ -1,0 +1,61 @@
+.contract-pnl-section { margin-top: 16px; padding: 24px; }
+.contract-pnl-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.contract-pnl-head h2 { font-size: 24px; margin: 0 0 5px; }
+.contract-pnl-head p { font-size: 14px; color: var(--muted); }
+.contract-pnl-head > span {
+  padding: 8px 12px;
+  border-radius: 11px;
+  color: var(--primary);
+  background: var(--primary-soft);
+  font-size: 12px;
+}
+.contract-pnl-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.contract-pnl-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 19px;
+  background: #fff;
+}
+.contract-pnl-top { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.contract-symbol { display: flex; align-items: center; gap: 12px; }
+.contract-symbol .coin-icon { width: 40px; height: 40px; font-size: 11px; }
+.contract-symbol h3 { margin: 0 0 4px; font-size: 17px; }
+.contract-symbol p { color: var(--muted); font-size: 11px; }
+.contract-total { text-align: right; }
+.contract-total span { display: block; color: var(--muted); font-size: 11px; margin-bottom: 4px; }
+.contract-total strong { font-size: 21px; }
+.contract-breakdown { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; }
+.contract-total .contract-breakdown span { display: flex; gap: 4px; margin: 0; font-size: 10px; white-space: nowrap; }
+.contract-breakdown b { font-size: 11px; }
+.contract-pnl-stats {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 8px;
+  margin-top: 17px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+.contract-pnl-stats span { display: block; color: var(--muted); font-size: 10px; margin-bottom: 6px; }
+.contract-pnl-stats b { font-size: 13px; white-space: nowrap; }
+.contract-pnl-empty {
+  grid-column: 1/-1;
+  padding: 30px;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+@media(max-width:1100px){.contract-pnl-grid{grid-template-columns:1fr}}
+@media(max-width:720px){
+  .contract-pnl-section{padding:17px}
+  .contract-pnl-head h2{font-size:20px}
+  .contract-pnl-head p{font-size:11px}
+  .contract-pnl-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contract-total strong{font-size:17px}
+}

@@ -1,0 +1,11 @@
+/* Keep the overview focused on the data cards and chart above the fold. */
+body main { padding-top: 14px; }
+body header {
+  display: none;
+}
+body[data-view="overview"] main { padding-top: 14px; }
+.pnl-page .pnl-calendar { margin-top: 0; }
+
+@media (max-width: 720px) {
+  body[data-view="overview"] main { padding-top: 12px; }
+}

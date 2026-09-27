@@ -1,0 +1,93 @@
+/* Larger type for the information-dense dashboard sections. */
+.forecast-toggle {
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.forecast-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(101,85,143,.28);
+  box-shadow: 0 14px 34px rgba(39,34,52,.09);
+}
+.forecast-toggle:active { transform: scale(.985); }
+.forecast-toggle:focus-visible { outline: 3px solid rgba(101,85,143,.28); outline-offset: 3px; }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.icon-btn span { display: block; line-height: 1; }
+.icon-btn:hover { background: var(--primary-soft); color: var(--primary); }
+.icon-btn:active { transform: scale(.9); }
+.icon-btn.loading {
+  cursor: wait;
+  color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: 0 0 0 5px rgba(101,85,143,.1);
+}
+.icon-btn.loading span { animation: refresh-spin .75s linear infinite; }
+@keyframes refresh-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .icon-btn.loading span { animation-duration: 1.5s; }
+}
+
+.pnl-calendar .calendar-head h2 { font-size: 24px; }
+.pnl-calendar .calendar-head p { font-size: 14px; }
+.pnl-calendar .calendar-nav strong { min-width: 105px; font-size: 15px; }
+.pnl-calendar .calendar-week span { font-size: 12px; }
+.pnl-calendar .calendar-day .date { font-size: 13px; }
+.pnl-calendar .calendar-day strong { font-size: 16px; }
+.pnl-calendar .calendar-legend { font-size: 12px; }
+
+.risk .panel-head h2 { font-size: 22px; }
+.risk .panel-head p { font-size: 14px; }
+.risk .safe { font-size: 13px; padding: 9px 13px; }
+.risk .ring strong { font-size: 32px; }
+.risk .ring small { font-size: 11px; }
+.risk .risk-copy b { font-size: 17px; }
+.risk .risk-copy p { font-size: 14px; line-height: 1.65; }
+.risk .risk-row { font-size: 14px; padding: 14px 0; }
+.risk .risk-row b { font-size: 15px; }
+
+[data-page="positions"] .section-intro h2 { font-size: 24px; }
+[data-page="positions"] .section-intro p { font-size: 14px; }
+[data-page="positions"] .live-chip { font-size: 12px; }
+.settlement-symbol h3 { font-size: 19px; }
+.settlement-symbol small { font-size: 12px; }
+.settlement-symbol .side { font-size: 11px; }
+.settlement-pnl strong { font-size: 24px; }
+.settlement-pnl small { font-size: 11px; }
+.settlement-summary { font-size: 14px; line-height: 1.75; }
+.settlement-stat span { font-size: 11px; }
+.settlement-stat b { font-size: 14px; }
+
+.history-heading h2 { font-size: 24px; }
+.history-heading p { font-size: 14px; }
+.history-count { font-size: 12px; }
+.closed-main h3 { font-size: 16px; }
+.closed-main p { font-size: 12px; }
+.closed-main .coin-icon { font-size: 11px; }
+.closed-tags .side,
+.close-status { font-size: 11px; }
+.closed-stat span { font-size: 11px; }
+.closed-stat b { font-size: 14px; }
+.closed-empty { font-size: 14px; }
+
+@media (max-width: 1150px) {
+  .closed-main h3 { font-size: 15px; }
+  .closed-main p,
+  .closed-stat span { font-size: 10px; }
+  .closed-stat b { font-size: 12px; }
+}
+
+@media (max-width: 720px) {
+  .pnl-calendar .calendar-head h2,
+  [data-page="positions"] .section-intro h2,
+  .history-heading h2 { font-size: 20px; }
+  .pnl-calendar .calendar-week span { font-size: 10px; }
+  .pnl-calendar .calendar-day .date { font-size: 11px; }
+  .pnl-calendar .calendar-day strong { font-size: 11px; }
+  .settlement-summary { font-size: 12px; }
+  .settlement-stat b,
+  .closed-stat b { font-size: 13px; }
+}
