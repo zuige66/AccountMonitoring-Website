@@ -22,19 +22,14 @@ renderChart = function renderAdaptiveChart() {
   if (!series.length) return;
 
   const values = series.map(point => Number(point.pnl));
-  let min;
-  let max;
-  if (days === 1) {
-    const low = Math.min(...values);
-    const high = Math.max(...values);
-    const span = high - low;
-    const yPadding = Math.max(span * .18, Math.abs(high || 1) * .008, .03);
-    min = low - yPadding;
-    max = high + yPadding;
-  } else {
-    min = Math.min(...values, 0);
-    max = Math.max(...values, 1);
-  }
+  // Tight Y range for every period so the curve always spans most of the
+  // frame height instead of being flattened by a forced zero baseline.
+  const low = Math.min(...values);
+  const high = Math.max(...values);
+  const span = high - low;
+  const yPadding = span > 0 ? span * .15 : Math.max(Math.abs(high) * .08, .5);
+  const min = low - yPadding;
+  const max = high + yPadding;
 
   const pointX = index => pad + index * (width - pad * 2) / Math.max(1, series.length - 1);
   const pointY = value => height - pad - (value - min) / (max - min || 1) * (height - pad * 2);
@@ -66,15 +61,6 @@ renderChart = function renderAdaptiveChart() {
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
   ctx.stroke();
-
-  if (days === 1 && series.length <= 160) {
-    ctx.fillStyle = '#65558f';
-    series.forEach((point, index) => {
-      ctx.beginPath();
-      ctx.arc(pointX(index), pointY(point.pnl), 2.4, 0, Math.PI * 2);
-      ctx.fill();
-    });
-  }
 
   canvas.onmousemove = event => {
     const index = Math.round((event.offsetX - pad) / (width - pad * 2) * (series.length - 1));
